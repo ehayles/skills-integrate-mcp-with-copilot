@@ -8,6 +8,16 @@
   </head>
   <body>
     <header>
+      <div class="account-controls">
+        <button id="account-button" class="icon-button" type="button" aria-label="Teacher account" aria-expanded="false" aria-controls="account-menu" title="Teacher account">
+          <img src="user-round.svg" width="24" height="24" alt="" />
+        </button>
+        <div id="account-menu" class="account-menu" hidden>
+          <p id="account-name">Student view</p>
+          <button id="login-button" type="button">Teacher login</button>
+          <button id="logout-button" type="button" hidden>Log out</button>
+        </div>
+      </div>
       <h1>Mergington High School</h1>
       <h2>Extracurricular Activities</h2>
     </header>
@@ -21,7 +31,7 @@
         </div>
       </section>
 
-      <section id="signup-container">
+      <section id="signup-container" hidden>
         <h3>Sign Up for an Activity</h3>
         <form id="signup-form">
           <div class="form-group">
@@ -37,9 +47,29 @@
           </div>
           <button type="submit">Sign Up</button>
         </form>
-        <div id="message" class="hidden"></div>
       </section>
     </main>
+
+    <div id="message" class="message hidden" role="status" aria-live="polite"></div>
+
+    <dialog id="login-dialog" aria-labelledby="login-title">
+      <div class="dialog-heading">
+        <h3 id="login-title">Teacher login</h3>
+        <button id="close-login" class="close-button" type="button" aria-label="Close login" title="Close login">&times;</button>
+      </div>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input id="username" name="username" autocomplete="username" required autofocus />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+        </div>
+        <p id="login-error" class="error" role="alert" hidden></p>
+        <button id="login-submit" type="submit">Log in</button>
+      </form>
+    </dialog>
 
     <footer>
       <p>&copy; 2026 Mergington High School</p>
